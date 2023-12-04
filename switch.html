@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+</style>
+<body>
+<center>
+    <h1>WELCOME TO OUR STORE</h1>
+
+<h1>=========MENU=========</h1>
+
+
+---------------------------------------------------------------
+<h1>Enter 1 to buy T-shirts</h1>
+<h1>Enter 2 to buy Jeans</h1>
+<h1>Enter 3 to buy Dress</h1>
+---------------------------------------------------------------
+<br>
+<input type="text" id="in">
+<h1 id="ans">JJ</h1>
+</center>
+
+</body>
+</html>
+
+<script>
+   let val = document.getElementById('in').value
+   let dayname;
+   console.log(val)
+    switch(parseInt(val)){
+        case 1 : dayname = 'Monday '
+        dayname += 'WORKDAY'
+        break;
+        case 2 : dayname = 'Tuesday '
+        dayname += 'WORKDAY'
+        break;
+        case 3 : dayname = 'Wednesday '
+        dayname += 'WORKDAY'
+        break;
+        case 4 : dayname = 'Thursday '
+        dayname += 'WORKDAY'
+        break;
+        case 5 : dayname = 'Friday '
+        dayname += 'WORKDAY'
+        break;
+        case 6 : dayname = 'Saturday '
+        dayname += 'WEEKEND'
+
+        break;
+        case 7 : dayname = 'Sunday '
+        dayname += 'WEEKEND'
+        break;
+        default : dayname = 'Invalid'
+    }
+   
+        
+    document.getElementById('ans').innerText = `Today is ${dayname}`
+</script>
