@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Returning Order</h1>
+    <h1 id="ans"></h1>
+    <h1 id="ans1"></h1>
+</body>
+</html>
+<script>
+    let language = prompt('1 Tea\n 2 Coffee\n 3 Juice');
+    switch(parseInt(language)){
+        case 1 :  document.getElementById('ans').innerText = "Tea is selected"
+        let req = prompt('Enter Sub choice ')
+        switch(req){
+            case '1' : document.getElementById('ans1').innerText = 'Ginger Tea'
+            break
+            case 2 : document.getElementById('ans1').innerText = 'Chocolate Tea'
+            break
+            case 3 : document.getElementById('ans1').innerText = 'Eliachi Tea'
+        }
+        break;
+        case 2 : document.getElementById('ans').innerText = "Coffee is selected"
+        break;
+        default : document.getElementById('ans').innerText = ""
+    }
+ 
+</script>
