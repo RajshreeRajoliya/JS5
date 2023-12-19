@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+const arr = [12 , 8 , 0 , 1 , -89]
+const doubled = arr.map((el)=>{
+return el * 2
+})
+console.log(doubled)
+
+const arr = [1 ,2 , 3 , 4 ,5]
+const filtered = arr.filter(function(el){
+    return el % 2 == 0
+})
+
+console.log(filtered)
+
+const num = [1 ,2 ,3 ,4 ,5]
+
+num.forEach(el => console.log(el))
+
+const num = ["a","b","c","d"]
+const index = num.indexOf("d")
+console.log(index)
+
+const num = [1,7,43,2]
+const hasIndex = num.includes(3)
+console.log(hasIndex)
+
+
+const arr = [1 , 2 ,3 ,5]
+
+allEven = arr.some(function(el){
+    return el % 2 == 0
+})
+console.log(allEven)
+
+const num = [1 , 2 , 3 , 4]
+const sum = num.reduce((currentValue , acc)=>{
+    return currentValue + acc
+})
+console.log(sum)
+
+
+const arr = [1 , 2 , 3 , 4]
+const doubled = arr.map((el)=>{
+return el * 2
+})
+
+console.log(doubled)
+
+const arr = [1 , 2 , 3 , 4]
+const filtered = arr.filter((el)=>{
+    return el % 2 == 0
+})
+console.log(filtered)
+
+const arr = [1 , 2  , 3 , 4]
+const sum = arr.reduce((current , acc)=>{
+    return current + acc
+})
+
+console.log(sum)
+
+const arr = [1 , 2 , 3 , 4]
+arr.forEach((num)=>{
+    console.log(num)
+})
+
+
+const arr = [1 , 2 , 3 , 4]
+const indexOf = arr.indexOf(3)
+console.log(indexOf)
+
+
+const arr = [1 , 2 , 3 , 4 , 5]
+const hasIndex = arr.includes(4)
+console.log(hasIndex)
+
+
+const arr = [3 , 2 , 8 , 14 , 50]
+const allEven = arr.some(function(el){
+    return el % 2 == 0
+})
+
+console.log(allEven)
+</script>
