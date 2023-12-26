@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let quotes = [
+        {text : "aaa", author : "joe" , price : 800,category : "l"},
+        {text : "bbb", author : "doe" , price : 100,category : "l"},
+        {text : "ccc", author : "hoe" , price : 900,category : "c"},
+        {text : "ddd", author : "poe" , price : 600,category : "c"},
+        {text : "eee", author : "soe" , price : 400,category : "l"},
+
+    ]
+    let selected = [];
+
+    for(let i = 0 ; i < quotes.length ; i++){
+        document.write(quotes[i].text  + "<br>")
+    }
+
+    for(let i = 0 ; i < quotes.length ; i++){
+        if(quotes[i].category === "c"){
+            selected.push(quotes[i].text)
+        }
+    }
+
+    for(let i = 0 ; i < quotes.length ; i++){
+        if(quotes[i].price <= 500){
+            selected.push(quotes[i].author)
+        }
+    }
+
+    console.log(selected)
+</script>
