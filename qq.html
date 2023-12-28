@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>First Heading</h1>
+    <h1>Second Heading</h1>
+
+    <h3>1</h3>
+    <h3>2</h3>
+    <h3>3</h3>
+    <h3>4</h3>
+    <h3>5</h3>
+
+    <hr>
+
+    <button id="chgbtn">Click to change red</button>
+    <button onclick="chggreen()">Click to change green</button>
+</body>
+</html>
+
+<script>
+document.getElementById("chgbtn").addEventListener("click",chgh1)
+
+
+function chgh1(){
+    var h1 = document.querySelector('h1')
+    h1.style.color = "red"
+}
+
+function chggreen(){
+var head = document.querySelectorAll('h3')
+    for(let i = 0 ; i < head.length ; i++){
+        head[i].style.backgroundColor = "black"
+        head[i].style.color = "yellow"
+    }
+}
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My First Heading</h1>
+    <h1>My Second Heading</h1>
+
+
+    <h3>1</h3>
+    <h3>2</h3>
+    <h3>3</h3>
+
+    <div class="org">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita officiis laudantium unde perferendis, natus odit placeat cupiditate dolorum inventore deserunt earum de
+        lectus exercitationem commodi reiciendis ipsam iusto dicta qui nostrum.</div>
+
+        <p class="org">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet optio perspiciatis ipsa consequatur deserunt voluptatibus cumque ipsam totam natus in dignissimos
+             quis, accusantium fugit? Voluptatum labore provident asperiores fugiat esse.</p>
+
+
+             <p class="even">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae est excepturi aspernatur deleniti sapiente non maiores corrupti molestiae obcaecati, ipsa placeat deserunt accusantium voluptas ut consequatur praesentium, minus beatae quae.</p>
+             <p class="odd">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid dolore iure dicta earum ut explicabo quidem consequatur, libero asp
+                eriores voluptatem quod maxime, cupiditate repellat ea eos tenetur, corporis animi odio.]</p>
+             <p class="even">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque quaerat, minima, obcaecati possim
+                us temporibus suscipit consequatur rerum libero, iste rem ipsa. Alias obcaecati labore enim non nobis animi ipsa maxime!]</p>
+             <p class="odd">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga accusamus laboriosam eius, modi harum quibusdam commodi odit! 
+                Earum dignissimos officiis explicabo error praesentium molestias iste enim vero voluptas? Consequatur, nostrum!</p>
+
+
+    <hr>
+    <button id="chgBtn">Change To Red</button>
+    <button onclick="changeh3()">Change To Blue</button>
+    <button onclick="changemultiple()">Change To Green</button>
+    
+    <button onclick="dark()">Change To Dark</button>
+    <button id="odd">Change to Green</button>
+</body>
+</html>
+
+<script>
+var btn = document.getElementById("chgBtn").addEventListener("click",chgH1);
+
+function chgH1(){
+var h1 = document.querySelector('h1')
+h1.style.color = "red";
+}
+
+function changeh3(){
+    var head =  document.querySelectorAll('h3');
+    for(var i = 0 ; i < head.length ; i++){
+        head[i].style.color = "blue"
+    }
+}
+
+function changemultiple(){
+    var cl = document.querySelectorAll(".org");
+    for(var i = 0 ; i < cl.length ; i++){
+        cl[i].style.backgroundColor = "pink";
+        cl[i].style.color = "green"
+    }
+}
+
+function dark(){
+    var bl = document.querySelectorAll('.even');
+    for(var i = 0 ; i < bl.length ; i++){
+        bl[i].style.color = "white";
+        bl[i].style.backgroundColor = "black";
+    }
+}
+
+ document.getElementById("odd").addEventListener("click",odd);
+function odd(){
+    var green = document.querySelectorAll(".odd");
+    for(var i = 0 ; i <= green.length-1 ; i++){
+        green[i].style.color = "red";
+        green[i].style.backgroundColor = "green"
+    }
+}
+</script>
