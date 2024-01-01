@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function validateEmail(email) {
+    if (!email.includes('@')) {
+        throw new Error("Email should have @");
+    } else {
+        console.log("Email is valid:", email);
+    }
+}
+
+try {
+    validateEmail("example.com"); // Replace with any email
+} catch (error) {
+    console.log("Error:", error.message);
+}
+
+
+
+// function divideNumbers(a, b) {
+//     if (b < 0) {
+//         throw new Error("Number not divisible by 0");
+//     } else {
+//         console.log("Result:", a / b);
+//     }
+// }
+
+// try {
+//     divideNumbers(10, -2); // Replace with any numbers
+// } catch (error) {
+//     console.log("Error:", error.message);
+// }
+
+// function checkNonEmptyString(str) {
+//     if (str === '') {
+//         throw new Error("String must contain some characters");
+//     } else {
+//         console.log("String is not empty:", str);
+//     }
+// }
+
+// try {
+//     checkNonEmptyString(""); // Replace with any string
+// } catch (error) {
+//     console.log("Error:", error.message);
+// }
+
+
+</script>

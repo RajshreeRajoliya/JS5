@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" placeholder="Enter first Value" id="fnum">
+    <input type="number" placeholder="Enter Second Value" id="snum">
+    <h1 id="ans"></h1>
+    <br><br><br>
+    <hr>
+    <button onclick="ADD()">Addition</button>
+    <button onclick="SUB()">Subtraction</button>
+    <button id="btn3">Multiply</button>
+    <button id="btn4">Divide</button>
+
+</body>
+</html>
+
+<script>
+    function ADD(){
+var num1 = document.getElementById("fnum").value;
+var num2 = document.getElementById("snum").value;
+
+var sum = +num1 + +num2;
+document.getElementById("ans").innerHTML = sum;
+alert(sum)
+console.log(sum);
+    }
+
+    function SUB(){
+        var n1 = document.getElementById("fnum").value;
+        var n2 = document.getElementById("snum").value;
+
+        var sub = +n1 - +n2;
+        alert(sub);
+        document.getElementById("ans").innerText = sub;
+    }
+
+    document.getElementById("btn3").addEventListener("click",multi);
+    function multi(){
+        var v1 = document.getElementById("fnum").value;
+        var v2 = document.getElementById("snum").value;
+        var multiply = +v1 * +v2;
+        alert(multiply);
+        console.log(multiply);
+        document.getElementById("ans").innerHTML=multiply;
+        ans.style.color = "red";
+
+    }
+
+    var divide = document.getElementById("btn4").addEventListener("click",div);
+    function div(){
+        var d1 = document.getElementById("fnum").value;
+        var d2 = document.getElementById("snum").value;
+
+        var divi = +d1 / +d2;
+
+        alert(divi);
+        console.log(divi);
+        document.getElementById("ans").innerText = divi;
+        ans.style.backgroundColor = "yellow"
+    }
+</script>

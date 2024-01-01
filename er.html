@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+function validEmail(email){
+if(!email.includes('@')){
+    throw new Error('Invalid @ must')
+} else {
+    console.log("Valid email",email)
+}
+}
+
+try{
+    validEmail("example.com")
+} catch(error) {
+    console.log("Error : ",error.message)
+}
+
+
+function checkEmpty(str){
+if(str === ''){
+    throw new Error("Invalid string")
+} else {
+    console.log("Valid : ",str)
+}
+}
+
+try{
+    checkEmpty("")
+} catch(error) {
+    console.log("error" , error.message)
+}
+
+function divi(a,b){
+if(b <= 0){
+    throw new Error("Invalid number")
+} else {
+    console.log("Answer",a/b);
+}
+}
+
+
+try{
+    divi(9,0)
+} catch(error){
+console.log("error" , error.message)
+}
+
+</script>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="in1">
+    <input type="text" id="in2">
+    <h1 class="ans"></h1>
+    <hr>
+    <button onclick="add()">ADD</button>
+</body>
+</html>
+
+<script>
+    function add(){
+        var input1 = document.getElementById("in1").value
+    var input2 = document.getElementById("in2").value
+
+    var sum = +input1 + +input2
+
+document.querySelector(".ans").innerHTML ="Sum of two number is : " + sum;
+    }
+ 
+</script>
