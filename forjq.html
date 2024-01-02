@@ -22,6 +22,14 @@
           isValid = false;
         }
 
+        
+        // Validation for phone number field
+        var phoneNumber = $('#phoneNumber').val().trim();
+        if (phoneNumber === '') {
+          alert('Please enter your phone number.');
+          isValid = false;
+        }
+
         // Validation for password field
         var password = $('#password').val();
         if (password === '') {
@@ -36,12 +44,6 @@
           isValid = false;
         }
 
-        // Validation for phone number field
-        var phoneNumber = $('#phoneNumber').val().trim();
-        if (phoneNumber === '') {
-          alert('Please enter your phone number.');
-          isValid = false;
-        }
 
         // Prevent form submission if validation fails
         if (!isValid) {
@@ -59,14 +61,16 @@
     <label for="email">Email:</label>
     <input type="text" id="email"><br><br>
 
+    
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber"><br><br>
+
     <label for="password">Password:</label>
     <input type="password" id="password"><br><br>
 
     <label for="confirmPassword">Confirm Password:</label>
     <input type="password" id="confirmPassword"><br><br>
 
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="text" id="phoneNumber"><br><br>
 
     <input type="submit" value="Submit">
   </form>
