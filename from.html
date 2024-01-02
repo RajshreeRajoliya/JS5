@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form action="" id="sign">
+            <label for="">name</label>
+            <input type="text" id="nm">
+
+            <label for="">email</label>
+            <input type="text" id="em">
+
+            <label for="">phone</label>
+            <input type="text" id="mb">
+
+            <label for="">Pwd</label>
+            <input type="text" id="pw">
+
+            <label for="">CPwd</label>
+            <input type="text" id="cpw">
+        </form>
+    </center>
+</body>
+</html>
+
+<script>
+    document.getElementById("sign").onsubmit = function(event){
+        try{
+
+            var n = document.getElementById("nm").value
+        var ma = document.getElementById("em").value
+        var m = document.getElementById("mb").value
+        var pwd = document.getElementById("pw").value
+        var cpwd = document.getElementById("cpw").value
+
+
+            if(/\d/.test(n)){
+                throw new Error("name")
+            }
+
+            if(!/^\d{10}$/.test(m)){
+                throw new Error("mobile")
+            }
+
+            if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(ma)){
+                throw new Error("email")
+            }
+
+          alert("SUCCESSFULL !")
+
+        } catch(error){
+event.preventDefault()
+document.getElementById("err").innerHTML = error.message
+        }
+    }
+</script>
