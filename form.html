@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form action="" id="signin">
+
+            <label for="">Name</label>
+            <input type="text" id="n">
+            <label for="">Mobile</label>
+            <input type="text" id="m">
+            <label for="">Email</label>
+            <input type="text" id="e">
+            <label for="">Password</label>
+            <input type="text" id="p">
+            <label for="">Confirm Password</label>
+            <input type="text" id="cp">
+
+
+            <span id="err" style="color: red;"></span>
+
+            <button type="submit">Submit</button>
+        </form>
+    </center>
+</body>
+</html>
+
+
+<script>
+document.getElementById("signin").onsubmit = function(event){
+    try{
+
+var nm = document.getElementById("n").value
+var mb = document.getElementById("m").value
+var em = document.getElementById("e").value
+var pw = document.getElementById("p").value
+var cpw = document.getElementById("cp").value
+
+if(/\d/.test(nm)){
+    throw new Error("Invalid Name");
+}
+
+if(!/^\d{10}$/.test(mb)){
+    throw new Error("Invalid Mobile");
+}
+if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(em)){
+    throw new Error("Invalid email")
+}
+
+if(pw != cpw){
+    throw new Error("Invalid password");
+}
+
+alert("Signed in successfully")
+
+    } catch(error){
+event.preventDefault()        
+document.getElementById("err").innerHTML = error.message
+    }
+}
+</script>

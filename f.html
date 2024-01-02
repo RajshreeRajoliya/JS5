@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <center>
+    <form action="" id="signin">
+
+
+        <label for="">Name</label>
+        <input type="text" id="nm">
+<br><br><br><br>
+        <label for="">Mobile</label>
+        <input type="text" id="mb">
+        <br><br><br><br>
+        
+        <label for="">Email</label>
+        <input type="text" id="em">
+        <br><br><br><br>
+        
+        <label for="">Password</label>
+        <input type="text" id="pw">
+        <br><br><br><br>
+
+        <label for="">Confirm Password</label>
+        <input type="text" id="cpw">
+        <br><br><br><br>
+
+
+        <span id="err" style="color: red;"></span>
+        <br><br><br><br>
+
+        <button type="submit">SUBMIT</button>
+    </form>
+  </center>
+</body>
+</html>
+
+<script>
+    document.getElementById("signin").onsubmit = function(event){
+        try{
+var n = document.getElementById("nm").value
+var m = document.getElementById("mb").value
+var e = document.getElementById("em").value
+var p = document.getElementById("pw").value
+var cp = document.getElementById("cpw").value
+
+if(/\d/.test(n)){
+    throw new Error("Invalid Name")
+}
+
+if (!/^\d{10}$/.test(m)) {
+                throw new Error("Please Enter valid mobile number");
+            }
+
+if(!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(em)){
+    throw new Error("Invalid email")
+}
+
+
+
+if(p != cp){
+    throw new Error("Invalid password")
+}
+
+alert("Signed in successfully")
+        } catch(error){
+event.preventDefault()
+document.getElementById("err").innerHTML = error.message
+        }
+    }
+</script>
