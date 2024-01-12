@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Car{
+constructor(brand , color , price){
+    this.brand  = brand
+    this.color = color
+    this.price = price
+}
+    }
+
+    class electricCar extends Car{
+      constructor(brand , color , price , bttry){
+        super (brand , color , price)
+   this.bttry = bttry
+}
+display(){
+    console.log(this.brand)
+}
+
+    }
+    const c1 = new Car("ty","red",90000)
+    const c2 = new Car("ty","red",90000)
+    const c3 = new electricCar("ty","red",90000,"900 KWH")
+    console.log(c1)
+console.log(c2)
+    console.log(c3)
+    c3.display()
+</script>

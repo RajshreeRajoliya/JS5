@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <center>
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name"><br><br>
+        
+            <label for="email">Email:</label>
+            <input type="text" id="email"><br><br>
+        
+            
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber"><br><br>
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password"><br><br>
+        
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword"><br><br>
+        
+        
+            <input type="submit" value="Submit">
+
+          </form>
+
+
+        </form>
+    </center>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#myForm").submit(function(e){
+
+isValid = true;
+
+var name = $("#name").val().trim()
+
+if(name == ''){
+    isValid = false;
+    alert("Enter valid name !");
+}
+
+
+var email = $("#email").val().trim()
+if(email === ''){
+    isValid = false;
+    alert("Enter valid email !");
+} else if(!email.endsWith("@gmail.com")){
+    isValid = false;
+    alert("Enter valid email !");
+}
+
+
+var phoneNumber = $("#phoneNumber").val().trim()
+var reg = /^\d{10}$/
+
+if(phoneNumber === ''){
+    isValid = false;
+    alert("Enter valid phone !");
+} else if(!reg.test(phoneNumber)){
+    isValid = false;
+    alert("Enter valid phone !");
+}
+
+
+var password = $("#password").val().trim()
+
+if(password === ''){
+    isValid = false;
+    alert("Enter valid phassword!");
+} 
+
+
+var confirmPassword = $("#confirmPassword").val().trim()
+
+if(confirmPassword === ''){
+    isValid = false;
+    alert("Enter valid phassword!");
+}  else if(confirmPassword != password){
+    isValid = false;
+    alert("Enter valid phassword!");  
+}
+
+if (!isValid) {
+          event.preventDefault();
+        }
+
+        if(isValid){
+            alert("Successfully !")
+            
+        }
+
+
+        })
+    })
+</script>

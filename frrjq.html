@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <center>
+        <form action="" id="myform">
+            <label for="">Name</label>
+            <input type="text" id="name"> 
+            <br><br><br>
+
+            <label for="">Email</label>
+            <input type="text" id="email"> 
+            <br><br><br>
+
+            <label for="">Mobile</label>
+            <input type="text" id="mobile"> 
+            <br><br><br>
+
+            <label for="">Password</label>
+            <input type="text" id="pw"> 
+            <br><br><br>
+
+            <label for="">Confirm Password</label>
+            <input type="text" id="cpw"> 
+            <br><br><br>
+<button type="submit">submit</button>
+<br><br><br><br>
+<span id="err"></span>
+
+        </form>
+    </center>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#myform").submit(function(e){
+
+            isValid = true
+            var name = $("#name").val()
+            var mobile = $("#mobile").val()
+            var email = $("#email").val()
+            var pw = $("#pw").val()
+            var cpw = $("#cpw").val()
+
+if(name === ""){
+    isValid = false
+   alert("name")
+}
+if(email === ""){
+    isValid = false
+   alert("email")
+} else if(!email.endsWith("@gmail.com")) {
+    isValid = false
+   alert("email")
+}
+var phnrgx = /^\d{10}$/
+if(mobile === ""){
+    isValid = false
+   alert("mobile")
+} else if(!phnrgx.test(mobile)) {
+    isValid = false
+   alert("mobile")
+}
+
+
+
+
+
+if(!isValid){
+    event.preventDefault()
+}
+
+if(isValid){
+    alert("Success !")
+}
+
+        })
+    })
+</script>

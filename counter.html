@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* No need for styling for the user icon since it's commented out */
+    /* i {
+        font-size: 10vh;
+    } */
+</style>
+<body>
+    <!-- Commented out the user icon element -->
+    <h1 id="counter">0</h1>
+    <!-- <h1 id="countdown">0</h1> -->
+</body>
+</html>
+
+<script>
+// Commented out the counter-related code
+var counterElement = document.getElementById("counter");
+var count = 0;
+setInterval(() => {
+    count++;
+    counterElement.innerHTML = count;
+}, 3000);
+
+var countdown = 10;
+var stop;
+var countdownElement = document.getElementById("countdown");
+
+// stop = setInterval(() => {
+//     countdown--;
+//     countdownElement.innerHTML = countdown;
+//     if (countdown === 0) {
+//         clearInterval(stop);
+//         countdownElement.innerHTML = "  SALE IS LIVE!";
+//     }
+// }, 1000);
+</script>

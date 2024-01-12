@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+//     class Calculator{
+// add(a,b){
+// return a+b
+// }
+//     }
+//     const mycalculator = new Calculator
+//     const result = mycalculator.add(1, 7)
+//     console.log(result)
+
+
+class Animal{
+    makesound(){
+        return "Sound..."
+    }
+}
+
+class Dog extends Animal{
+makesound(){
+    return "Bark"
+}
+}
+
+class Cat {
+    makesound(){
+        return "Meoww"
+    }
+}
+const dog = new Dog
+const cat = new Cat
+console.log(cat.makesound())
+console.log(dog.makesound())
+</script>
