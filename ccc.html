@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        height: 200px;
+        width: 200px;
+        display: none;
+    }
+</style>
+<body>
+   <!-- <h1 id="counter">0</h1>  -->
+
+   <!-- <h1 id="countdown">5</h1> -->
+
+   <div id="myModal">
+    <p>lorem whateveter</p>
+   </div>
+
+   <button onclick="modal()">MODAL</button>
+</body>
+</html>
+
+<script>
+//     var counter = document.getElementById("counter");
+//     var count = 0;
+
+//     setInterval(()=>{
+// count++;
+// counter.innerHTML = count
+//     },1000)
+
+
+//var countdown = document.getElementById("countdown")
+// var count = 5;
+// var stop ;
+
+// stop=setInterval(()=>{
+// count--
+// countdown.innerHTML = count
+// if(count === 0){
+//     clearInterval(stop)
+//     countdown.innerHTML = "SALE IS LIVE"
+// }
+// },1000)
+
+
+
+function modal(){
+    setTimeout(()=>{
+document.getElementById("myModal").style.display = "block"
+    },2000)
+}
+</script>

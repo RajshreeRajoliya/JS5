@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #myModal{
+        display: none;
+    }
+</style>
+<body>
+    <!-- <h1 id="counter">0</h1>
+
+    <h1 id="countdown">5</h1> -->
+
+    <div id="myModal">
+        <button onclick="closemodel()">close</button>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sint pariatur. Ad, minus suscipit perspiciatis officiis quas saepe rem cupiditate vitae quos adipisci molestias tenetur reprehenderit. Cumque, blanditiis. Vero, consequatur.
+        Ratione magnam explicabo unde voluptatem velit minus ipsa veritatis voluptates accusamus porro quaerat autem perferendis consectetur excepturi, molestias cumque? Quidem repellendus fuga accusamus ab ut atque ratione quas provident mollitia?
+        </p>
+    </div>
+
+    <button onclick="modal()">MODAL</button>
+</body>
+</html>
+<script>
+    // var counter = document.getElementById("counter");
+    // var count = 0;
+
+    // setInterval(()=>{
+    //     count++
+    //     counter.innerHTML = count
+    // },2000)
+
+    // var countdown = document.getElementById("countdown")
+    // var count = 5;
+
+//     setInterval(()=>{
+// count--
+// countdown.innerHTML = count
+
+// if(count <= 0){
+//     countdown.innerHTML = "SALE IS LIVE"
+// }
+//     },2000)
+
+
+function modal(){
+    setTimeout(()=>{
+document.getElementById("myModal").style.display = "block"
+    },2000)
+}
+
+function closemodel(){
+    document.getElementById("myModal").style.display = "none"
+}
+
+
+</script>
+
