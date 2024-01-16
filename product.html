@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#main{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+    img{
+      width: 100px;
+    }
+    .cart-btn{
+        float: right;
+        background-color: black;
+        color: white;
+        width: 150px;
+      
+        height:30px
+    }
+    .btn{
+        background-color: black;
+        color: white;
+        width: 200px;
+        height: 50px;
+        border: none;
+    }
+    .title{
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: orange;
+    }
+
+    #pic{
+      border: 2px solid red;
+    }
+   
+</style>
+
+<body>
+<!-- <select id="sort-select">
+   
+    <option value="high">High</option>
+    <option value="low">Low</option>
+    <option value="az">A-Z</option>
+    <option value="za">ZA</option>
+</select> -->
+
+ <!-- <div id="cart"></div> -->
+   <div id="main"></div> 
+</body>
+</html>
+<script>
+var womenData = [
+    {
+        id: 1,
+        title   :"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :19.95
+    },
+    {
+        id: 2,
+        title   :"AFjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :29.95
+    },
+    {
+        id: 3,
+        title   :"zFjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :9.95
+    },
+    {
+        id: 4,
+        title   :"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :11.95
+    },
+    
+]
+
+
+
+
+function displayData(data){
+    document.querySelector("#main").innerHTML = ""
+data.map((el)=>{
+
+    var div = document.createElement("div")
+
+    var image = document.createElement("img")
+    image.setAttribute("src",el.image)
+    image.setAttribute("id","pic")
+
+    var name = document.createElement("h1")
+    name.innerHTML = el.title
+    name.classList.add("title")
+    var price = document.createElement("p");
+    price.innerHTML = el.price;
+
+    var button = document.createElement("button");
+    button.innerHTML = "Add to Cart"
+    
+    button.classList.add("btn")
+
+    div.append(image,name,price,button);
+    document.querySelector("#main").appendChild(div)
+
+})
+}
+displayData(womenData)
+
+
+</script>

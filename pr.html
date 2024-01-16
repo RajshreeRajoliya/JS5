@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #main{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+    #pic{
+        height: 200px;
+        width: 200px;
+    }
+
+    .btn{
+        width: 300px;
+        background-color: black;
+        color: white;
+        height: 50px;
+    }
+
+    .title{
+        font-size: 1vw;
+        font-family: cursive;
+    }
+</style>
+<body>
+  <div id="main"></div>  
+</body>
+</html>
+
+<script>
+    let womenData = [
+
+    {
+        id:	1,
+        title:	"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        price:	109.95,
+        image:	"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    },
+
+    {
+        id:	2,
+        title:	"Mens Casual Premium Slim Fit T-Shirts ",
+        price:	109.95,
+        image:	"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+    },
+
+    {
+        id:	3,
+        title:	"Mens Cotton Jacket",
+        price:	109.95,
+        image:		"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+    },
+
+    {
+        id:	4,
+        title:		"Mens Casual Slim Fit",
+        price:	109.95,
+        image:		"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+    },
+
+    ]
+
+
+
+function displayData(womenData){
+womenData.map((el)=>{
+let div = document.createElement("div")
+
+let image = document.createElement("img")
+image.setAttribute("src",el.image)
+image.setAttribute("id","pic")
+
+
+let name = document.createElement("h1")
+name.innerText = el.title
+name.classList.add("title")
+
+let price = document.createElement("h3")
+price.innerText = el.price
+
+let button = document.createElement("button")
+button.innerText = "ADD TO CART"
+button.classList.add("btn")
+
+div.append(image , name , price , button)
+document.querySelector("#main").appendChild(div)
+
+})
+
+}
+
+displayData(womenData)
+
+</script>
