@@ -27,6 +27,14 @@
 </style>
 <body>
     <center>
+
+        <select id="sort-select">
+   
+            <option value="high">High</option>
+            <option value="low">Low</option>
+            <option value="az">A-Z</option>
+            <option value="za">ZA</option>
+        </select>
         <div id="main"></div>
     </center>
 </body>
@@ -72,6 +80,7 @@
     ]
 
     function displayData(data){
+        document.getElementById("main").innerHTML = ""
         data.map((el)=>{
             let div = document.createElement("div")
 
@@ -94,4 +103,21 @@ document.querySelector("#main").append(div)
     }
 
     displayData(data)
+
+    const sortSelect = document.querySelector("#sort-select")
+sortSelect.addEventListener("change",()=>{
+    const selectedValue = sortSelect.value
+    let sortedData = []
+
+    if(selectedValue == "low"){
+        sortedData = data.slice().sort((a,b) => a.price - b.price)
+    } else if(selectedValue == "high") {
+        sortedData = data.slice().sort((a,b) => b.price - a.price)
+    } else if(selectedValue == "az") {
+sortedData =data.slice().sort((a,b) => a.title.localeCompare(b.title))
+    } else if (selectedValue == "za"){
+        sortedData = data.slice().sort((a,b) => b.title.localeCompare(a.title))
+    }
+    displayData(sortedData)
+})
 </script>

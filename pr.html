@@ -28,38 +28,52 @@
     }
 </style>
 <body>
-  <div id="main"></div>  
+    
+
+<select name="" id="sort-select">
+    <option value="low">Price Low to High</option>
+    <option value="high">Price High to Low</option>
+    <option value="az">A-Z</option>
+    <option value="za">Z-A</option>
+</select>
+
+<center>
+
+   
+
+    <div id="main"></div>  
+</center>
 </body>
 </html>
 
 <script>
-    let womenData = [
+    let data = [
 
     {
         id:	1,
         title:	"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-        price:	109.95,
+        price:	10.95,
         image:	"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
     },
 
     {
         id:	2,
-        title:	"Mens Casual Premium Slim Fit T-Shirts ",
-        price:	109.95,
+        title:	"Aens Casual Premium Slim Fit T-Shirts ",
+        price:	15.95,
         image:	"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
 
     {
         id:	3,
         title:	"Mens Cotton Jacket",
-        price:	109.95,
+        price:	1109.95,
         image:		"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
     },
 
     {
         id:	4,
-        title:		"Mens Casual Slim Fit",
-        price:	109.95,
+        title:		"Zens Casual Slim Fit",
+        price:	9.95,
         image:		"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
     },
 
@@ -67,8 +81,9 @@
 
 
 
-function displayData(womenData){
-womenData.map((el)=>{
+function displayData(data){
+    document.querySelector("#main").innerHTML = ""
+data.map((el)=>{
 let div = document.createElement("div")
 
 let image = document.createElement("img")
@@ -94,6 +109,27 @@ document.querySelector("#main").appendChild(div)
 
 }
 
-displayData(womenData)
+displayData(data)
+
+let selectsort = document.querySelector("#sort-select")
+
+selectsort.addEventListener("change",()=>{
+    let selectedValue = selectsort.value
+
+    let sorted = []
+
+    if(selectedValue == "low"){
+sorted = data.slice().sort((a,b)=>a.price - b.price)
+    } else if (selectedValue === "high"){
+sorted = data.slice().sort((a,b)=> b.price - a.price)
+    } else if(selectedValue === "az"){
+sorted =  data.slice().sort((a,b)=>a.title.localeCompare(b.title))
+    } else if(selectedValue === "za"){
+sorted = data.slice().sort((a,b)=>b.title.localeCompare(a.title))
+    }
+
+    displayData(sorted)
+})
+
 
 </script>
