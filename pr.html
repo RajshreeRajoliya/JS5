@@ -30,16 +30,16 @@
 <body>
     
 
-<select name="" id="sort-select">
+
+<select name="" id="select-sort">
     <option value="low">Price Low to High</option>
     <option value="high">Price High to Low</option>
     <option value="az">A-Z</option>
     <option value="za">Z-A</option>
 </select>
-
 <center>
 
-   
+  <div id="cart"></div>
 
     <div id="main"></div>  
 </center>
@@ -77,13 +77,22 @@
         image:		"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
     },
 
+ 
+
     ]
 
+    let cartbtn = document.createElement("button")
+    cartbtn.innerText = "CART"
+
+    document.querySelector("#cart").append(cartbtn)
+    cartbtn.addEventListener("click",function(){
+        window.open("day34.html")
+    })
 
 
 function displayData(data){
     document.querySelector("#main").innerHTML = ""
-data.map((el)=>{
+data.map((el,i)=>{
 let div = document.createElement("div")
 
 let image = document.createElement("img")
@@ -102,6 +111,11 @@ let button = document.createElement("button")
 button.innerText = "ADD TO CART"
 button.classList.add("btn")
 
+button.addEventListener("click",function(){
+    addTocart(i)
+})
+
+
 div.append(image , name , price , button)
 document.querySelector("#main").appendChild(div)
 
@@ -111,25 +125,37 @@ document.querySelector("#main").appendChild(div)
 
 displayData(data)
 
-let selectsort = document.querySelector("#sort-select")
+let sortselect = document.getElementById("select-sort")
 
-selectsort.addEventListener("change",()=>{
-    let selectedValue = selectsort.value
+sortselect.addEventListener('change',()=>{
+    let selectedValue =  sortselect.value
 
     let sorted = []
 
-    if(selectedValue == "low"){
-sorted = data.slice().sort((a,b)=>a.price - b.price)
-    } else if (selectedValue === "high"){
-sorted = data.slice().sort((a,b)=> b.price - a.price)
+    if(selectedValue === "low"){
+        sorted = data.slice().sort((a,b)=> a.price - b.price)
+    } else if(selectedValue === "high"){
+sorted = data.slice().sort((a,b)=>b.price - a.price)
     } else if(selectedValue === "az"){
-sorted =  data.slice().sort((a,b)=>a.title.localeCompare(b.title))
+ sorted = data.slice().sort((a,b)=> a.title.localeCompare(b.title))
     } else if(selectedValue === "za"){
 sorted = data.slice().sort((a,b)=>b.title.localeCompare(a.title))
     }
-
-    displayData(sorted)
+displayData(sorted)
 })
+
+function addTocart(index){
+
+    let product = data.filter((el,i)=>{
+return i === index
+    })
+
+    let products = JSON.parse(localStorage.getItem("cart")) || []
+    products.push(product[0])
+    localStorage.setItem("cart",JSON.stringify(products))
+
+}
+
 
 
 </script>

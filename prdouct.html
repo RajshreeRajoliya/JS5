@@ -35,6 +35,9 @@
             <option value="az">A-Z</option>
             <option value="za">ZA</option>
         </select>
+
+        <div id="cart"></div>
+
         <div id="main"></div>
     </center>
 </body>
@@ -79,9 +82,17 @@
         },
     ]
 
+    var cartbtn = document.createElement("button")
+cartbtn.innerText = "CART";
+document.querySelector("#cart").append(cartbtn)
+
+cartbtn.addEventListener("click",function(){
+    window.open("cart.html")
+})
+
     function displayData(data){
         document.getElementById("main").innerHTML = ""
-        data.map((el)=>{
+        data.map((el,i)=>{
             let div = document.createElement("div")
 
             let name = document.createElement("h1")
@@ -96,7 +107,14 @@
             price.innerHTML = "Rs." + el.price
             price.classList.add("pr")
 
-            div.append( image,name , price)
+            var button = document.createElement("button");
+    button.innerHTML = "Add to Cart"
+    button.addEventListener("click",function(){
+        addtocart(i)
+    })
+    button.classList.add("btn")
+
+            div.append( image,name , price,button)
 document.querySelector("#main").append(div)
 
         })
@@ -120,4 +138,14 @@ sortedData =data.slice().sort((a,b) => a.title.localeCompare(b.title))
     }
     displayData(sortedData)
 })
+
+function addtocart(index){
+var product = data.filter(function(el,i){
+    return i === index;
+})
+var products = JSON.parse(localStorage.getItem("cart")) || []
+products.push(product[0])
+alert("Added to cart !");
+localStorage.setItem("cart",JSON.stringify(products))
+}
 </script>
