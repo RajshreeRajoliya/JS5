@@ -2,34 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=], initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div id="cart"></div>
+  <div id="cart"></div>
 </body>
 </html>
+<style>
+    img{
+        width: 200px;
+    }
+</style>
+
 <script>
-       let products = JSON.parse(localStorage.getItem("cart")) || []
+    var products = JSON.parse(localStorage.getItem("cart")) || []
 
-       function displaycart(){
-    products.map((el)=>{
-        let div = document.createElement("div")
+    if(localStorage.getItem("cart") == null){
+        var div = document.createElement("div");
 
-        let title = document.createElement("div")
-        title.innerHTML = el.title
+        var text = document.createElement("h1");
+        text.innerText = "empty !"
 
-        let image = document.createElement("img")
-        image.setAttribute("src",el.image)
+        var image = document.createElement("img");
+        image.setAttribute("src","https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90")
 
-        let price = document.createElement("h2")
-        price.innerHTML = el.price
+        div.append(text,image)
+       
+document.querySelector("#cart").appendChild(div)
+    } else {
+        displaycart()
+        displaytotal()
+    }
 
-        div.append(title , image , price)
-        document.querySelector("#cart").append(div)
-    })
+    function displaycart(){
+        document.querySelector("#cart").innerHTML =""
+        products.map((el, index)=>{
+
+var div = document.createElement("div")
+
+var image = document.createElement("img")
+image.setAttribute("src",el.image)
+
+var name = document.createElement("h1")
+name.innerHTML = el.title
+
+var price = document.createElement("p");
+price.innerHTML ="Price : "+ (el.price * (el.quantity || 1));
+price.setAttribute("id","price-"+index);
+
+var quantity = document.createElement('p');
+quantity.innerText = "Quantity : "+(el.quantity || 1)
+quantity.setAttribute("id","quantity-"+index)
+
+var inc = document.createElement("button");
+inc.innerText = "+";
+inc.addEventListener("click",function(){
+    el.quantity = (el.quantity || 1) + 1;
+    document.getElementById("quantity-"+index).innerText = "Quantity :"+el.quantity ;
+    document.getElementById("price-"+index).innerText = "Price : "+ el.price *   el.quantity;
+    displaytotal();
+  updateCart()
+})
+
+var deletebtn = document.createElement("button");
+deletebtn.innerText = "REMOVE";
+deletebtn.addEventListener("click",function(){
+    products.splice(index,1);
+    localStorage.setItem("cart",JSON.stringify(products));
+    displaycart()
+    displaytotal()
+})
+
+div.append(image,name,price,quantity,deletebtn,inc);
+document.querySelector("#cart").appendChild(div)
+})
+}
+
+function displaytotal(){
+    var total = products.reduce(function(acc,el){
+return acc + el.price * (el.quantity || 1)
+    },0)
+    var existingtotal = document.getElementById("grandtotal");
+    if(existingtotal){
+       if(total === 0){
+        existingtotal.remove();
+       } else {
+        existingtotal.innerText = "Grand Total = "+"Rs." +total
        }
+    } else {
+        var amt = document.createElement("h1");
+    amt.innerText = "Grand Total = "+"Rs." +total
+    amt.setAttribute("id","grandtotal")
 
-       displaycart()
+    document.querySelector("#cart").append(amt)
+    }
+    if(total === 0){
+    var div = document.createElement("div");
 
+var text = document.createElement("h1");
+text.innerText = "empty !"
+
+var image = document.createElement("img");
+image.setAttribute("src","https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90")
+
+div.append(text,image) 
+document.querySelector("#cart").appendChild(div)
+}
+}
+
+
+function updateCart(){
+    localStorage.setItem("cart",JSON.stringify(products))
+}
 </script>

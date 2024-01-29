@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#main{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+    img{
+      width: 100px;
+    }
+    .cart-btn{
+        float: right;
+        background-color: black;
+        color: white;
+        width: 150px;
+      
+        height:30px
+    }
+    .btn{
+        background-color: black;
+        color: white;
+        width: 200px;
+        height: 50px;
+        border: none;
+    }
+    .title{
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: orange;
+    }
+
+    #pic{
+      border: 2px solid red;
+    }
+   
+</style>
+
+<body>
+<select id="sort-select">
+   
+    <option value="high">High</option>
+    <option value="low">Low</option>
+    <option value="az">A-Z</option>
+    <option value="za">ZA</option>
+</select>
+
+ <div id="cart"></div>
+   <div id="main"></div> 
+</body>
+</html>
+<script>
+var womenData = [
+    {
+        id: 1,
+        title   :"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :19.95
+    },
+    {
+        id: 2,
+        title   :"AFjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :29.95
+    },
+    {
+        id: 3,
+        title   :"zFjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :9.95
+    },
+    {
+        id: 4,
+        title   :"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        image   :"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        price   :11.95
+    },
+    
+]
+
+var cartbtn = document.createElement("button")
+cartbtn.innerText = "CART";
+document.querySelector("#cart").append(cartbtn)
+cartbtn.classList.add("cart-btn")
+cartbtn.addEventListener("click",function(){
+    window.open("cartpage.html")
+})
+
+
+
+function displayData(data){
+    document.querySelector("#main").innerHTML = ""
+data.map((el,i)=>{
+
+    var div = document.createElement("div")
+
+    var image = document.createElement("img")
+    image.setAttribute("src",el.image)
+    image.setAttribute("id","pic")
+
+    var name = document.createElement("h1")
+    name.innerHTML = el.title
+    name.classList.add("title")
+    var price = document.createElement("p");
+    price.innerHTML = el.price;
+
+    var button = document.createElement("button");
+    button.innerHTML = "Add to Cart"
+    button.addEventListener("click",function(){
+        addtocart(i,data)
+    })
+    button.classList.add("btn")
+
+    div.append(image,name,price,button);
+    document.querySelector("#main").appendChild(div)
+
+})
+}
+displayData(womenData)
+
+const sortSelect = document.querySelector("#sort-select")
+sortSelect.addEventListener("change",()=>{
+    const selectedValue = sortSelect.value
+    let sortedData = []
+
+    if(selectedValue == "low"){
+        sortedData = womenData.slice().sort((a,b) => a.price - b.price)
+    } else if(selectedValue == "high") {
+        sortedData = womenData.slice().sort((a,b) => b.price - a.price)
+    } else if(selectedValue == "az") {
+sortedData = womenData.slice().sort((a,b) => a.title.localeCompare(b.title))
+    } else if (selectedValue == "za"){
+        sortedData = womenData.slice().sort((a,b) => b.title.localeCompare(a.title))
+    }
+    displayData(sortedData)
+})
+
+
+// function addtocart(index,data) {
+//     var product = data.filter(function (el, i) {
+//         return i === index;
+//     });
+
+//     var products = JSON.parse(localStorage.getItem("cart")) || [];
+//     products.push(product[0]);
+//     alert("Added to cart !");
+//     localStorage.setItem("cart", JSON.stringify(products));
+// }
+
+function addtocart(index, data) {
+    var product = data[index];
+
+    var products = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    // Check if the product is already in the cart
+    var existingProductIndex = products.findIndex(p => p.id === product.id);
+
+    if (existingProductIndex !== -1) {
+        // If the product is already in the cart, increase the quantity by one
+        products[existingProductIndex].quantity = (products[existingProductIndex].quantity || 1) + 1;
+    } else {
+        // If the product is not in the cart, add it with quantity 1
+        products.push({ ...product, quantity: 1 });
+    }
+
+    // Save the updated cart to local storage
+    localStorage.setItem("cart", JSON.stringify(products));
+
+    alert("Added to cart!");
+}
+            
+
+
+</script>

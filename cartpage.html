@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cart"></div>
+
+    <script>
+        var products = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function displaycart() {
+            document.querySelector("#cart").innerHTML = "";
+
+            products.forEach((el, index) => {
+                var div = document.createElement("div");
+
+                let image = document.createElement("img");
+                image.setAttribute("src", el.image);
+
+                var name = document.createElement("h1");
+                name.innerHTML = el.title;
+
+                var price = document.createElement("p");
+                price.innerHTML = el.price;
+
+                var quantity = document.createElement('p');
+                quantity.innerText = "Quantity : " + (el.quantity || 1);
+                quantity.setAttribute("id", "quantity-" + index);
+
+
+let delbtn = document.createElement("button")
+delbtn.innerHTML = "REMOVE"
+delbtn.addEventListener("click",function(){
+products.splice(index,1)
+localStorage.setItem("cart",JSON.stringify(products))
+displaycart()
+})
+
+
+                div.append(image, name, price, quantity,delbtn);
+                document.querySelector("#cart").appendChild(div);
+            });
+        }
+
+        displaycart();
+
+        
+//                 var deletebtn = document.createElement("button");
+// deletebtn.innerText = "REMOVE";
+// deletebtn.addEventListener("click",function(){
+//     products.splice(index,1);
+//     localStorage.setItem("cart",JSON.stringify(products));
+//     displaycart()
+   
+// })
+        
+
+      
+    </script>
+</body>
+</html>

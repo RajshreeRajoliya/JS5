@@ -39,7 +39,7 @@
 </select>
 <center>
 
-  <div id="cart"></div>
+<div id="cart"></div>
 
     <div id="main"></div>  
 </center>
@@ -82,9 +82,9 @@
     ]
 
     let cartbtn = document.createElement("button")
-    cartbtn.innerText = "CART"
-
+    cartbtn.innerHTML = "CART"
     document.querySelector("#cart").append(cartbtn)
+
     cartbtn.addEventListener("click",function(){
         window.open("day34.html")
     })
@@ -116,6 +116,8 @@ button.addEventListener("click",function(){
 })
 
 
+
+
 div.append(image , name , price , button)
 document.querySelector("#main").appendChild(div)
 
@@ -145,16 +147,17 @@ displayData(sorted)
 })
 
 function addTocart(index){
-
-    let product = data.filter((el,i)=>{
+    let product =    data.filter((el,i)=>{
 return i === index
     })
 
     let products = JSON.parse(localStorage.getItem("cart")) || []
+
     products.push(product[0])
     localStorage.setItem("cart",JSON.stringify(products))
-
 }
+
+
 
 
 

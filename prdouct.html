@@ -139,13 +139,31 @@ sortedData =data.slice().sort((a,b) => a.title.localeCompare(b.title))
     displayData(sortedData)
 })
 
-function addtocart(index){
-var product = data.filter(function(el,i){
-    return i === index;
-})
-var products = JSON.parse(localStorage.getItem("cart")) || []
-products.push(product[0])
-alert("Added to cart !");
-localStorage.setItem("cart",JSON.stringify(products))
-}
+
+
+function addtocart(index) {
+        var product = data[index];
+
+        var existingProductIndex = products.findIndex(function (el) {
+            return el.id === product.id;
+        });
+
+        if (existingProductIndex !== -1) {
+            // If the product already exists in the cart, increase the quantity
+            products[existingProductIndex].quantity = (products[existingProductIndex].quantity || 1) + 1;
+        } else {
+            // If the product is not in the cart, add it with quantity 1
+            products.push({
+                id: product.id,
+                title: product.title,
+                image: product.image,
+                price: product.price,
+                quantity: 1,
+            });
+        }
+
+        alert("Added to cart!");
+        localStorage.setItem("cart", JSON.stringify(products));
+        displaycart();
+    }
 </script>
