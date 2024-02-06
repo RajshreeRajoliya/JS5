@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ .pic{
+        display: none;
+    }
+#imm{
+        width: 200px;
+        height: 200px;
+    }
+    #main{
+        display: grid;
+        grid-template-columns: repeat(4 , 1fr);
+    }
+   
+</style>
+<body>
+<div>
+    <img class="pic" src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/08fe6e3ced211fe1.jpeg?q=20" alt="">
+    <img class="pic" src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/ca2843e62171405e.jpg?q=20" alt="">
+    <img class="pic" src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/4cd6690ef44564f3.jpg?q=20" alt="">
+</div>
+
+<center>
+    <div id="main"></div>
+</center>
+
+</body>
+</html>
+
+<script>
+    let slides = document.querySelectorAll("img")
+    let index = 0;
+
+    function showSlide(index){
+        for(let i = 0 ; i < slides.length ; i++){
+            slides[i].style.display = "none"
+        }
+        slides[index].style.display = "block"
+    }
+
+    function startSlide(){
+        setInterval(()=>{
+            showSlide(index)
+            index++
+            if(index >= slides.length){
+                index = 0
+            }
+        },2000)
+    }
+
+startSlide()
+
+
+fetch('https://fakestoreapi.com/products')
+.then(function(res){
+    return res.json()
+})
+.then(function(json){
+    console.log(json)
+    displayProducts(json)
+})
+
+function displayProducts(data){
+
+    data.map((el)=>{
+        let div = document.createElement('div')
+
+let pic = document.createElement("img")
+pic.setAttribute("src",el.image)
+pic.setAttribute("id","imm")
+
+
+let title = document.createElement("p")
+title.innerHTML = el.title
+
+let price = document.createElement("p")
+price.innerHTML = el.price
+
+div.append(pic,title,price)
+document.getElementById("main").append(div)
+    })
+
+
+}
+
+</script>

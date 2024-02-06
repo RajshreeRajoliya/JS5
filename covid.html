@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="in">
+</body>
+</html>
+
+<script>
+fetch('https://data.covid19india.org/v4/min/data.min.json')
+    .then(function(res){
+        return res.json();
+    })
+    .then(function(json) {
+        const stateName = document.getElementById("in").value; 
+
+        for (const key in json) {
+            if (key === stateName) {
+                const stateData = json[key];
+
+                if ('total' in stateData && 'confirmed' in stateData.total) {
+                    const confirmedCases = stateData.total.confirmed;
+                    console.log(`Confirmed cases in ${stateName}: ${confirmedCases}`);
+                } else {
+                    console.log(`No confirmed cases data available for ${stateName}`);
+                }
+
+                return; 
+            }
+        }
+
+        console.log(`No data available for the state: ${stateName}`);
+    })
+    .catch(error => {
+        console.error('Error fetching or processing data:', error.message);
+    });
+</script>

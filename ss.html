@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .im{
+        display: none;
+        width: 100%;
+    }
+    #pic{
+        width: 200px;
+        height: 200px;
+    }
+
+    #main{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+</style>
+<body>
+    <div>
+        <img class="im" src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/4cd6690ef44564f3.jpg?q=20" alt="">
+        <img class="im" src="https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/ca2843e62171405e.jpg?q=20" alt="">
+    </div>
+
+  
+<div id="cart"></div>
+  <center>
+    <div id="main"></div>
+  </center>
+</body>
+</html>
+
+<script>
+    let slides = document.querySelectorAll("img")
+    let index = 0
+
+function showSlide(index){
+    for(let i = 0 ; i < slides.length ; i++){
+        slides[i].style.display = "none"
+    }
+    slides[index].style.display = "block"
+}
+
+function startSlide(){
+    setInterval(()=>{
+        showSlide(index)
+        index++
+        if(index >= slides.length){
+            index = 0
+        }
+    },1000)
+}
+
+startSlide()
+
+let btn = document.createElement("button")
+btn.innerHTML = "CART"
+document.getElementById("cart").append(btn)
+btn.addEventListener("click",function(){
+    window.open("car.html")
+})
+
+fetch('https://fakestoreapi.com/products')
+.then(function(res){
+return res.json()
+})
+.then(function(json){
+    console.log(json)
+    display(json)
+})
+
+
+function display(data){
+data.map((el)=>{
+    let div = document.createElement('div')
+
+let image = document.createElement("img")
+image.setAttribute("src",el.image)
+image.setAttribute("id","pic")
+
+let title = document.createElement("p")
+title.innerHTML = el.title
+
+let price = document.createElement('p')
+price.innerHTML = el.price
+
+let addbtn = document.createElement("button")
+addbtn.innerHTML = "Add To Cart"
+addbtn.addEventListener("click",function(){
+    addtocart(el)
+})
+
+div.append(image , title , price,addbtn)
+document.getElementById("main").append(div)
+})
+}
+
+function addtocart(product){
+let products = JSON.parse(localStorage.getItem("cart")) || []
+// products.push(product)
+var existingProductIndex = products.findIndex(p => p.id === product.id);
+
+if (existingProductIndex !== -1) {
+    // If the product is already in the cart, increase the quantity by one
+    products[existingProductIndex].quantity = (products[existingProductIndex].quantity || 1) + 1;
+} else {
+    // If the product is not in the cart, add it with quantity 1
+    products.push({ ...product, quantity: 1 });
+}
+localStorage.setItem("cart",JSON.stringify(products))
+}
+
+
+
+
+// let btn = document.createElement("button")
+// btn.innerHTML = "CART"
+// document.getElementById("cart").append(btn)
+// btn.addEventListener("click",function(){
+//     window.open("car.html")
+// })
+// let addBtn = document.createElement("button")
+// addBtn.innerHTML = "ADD TO CART"
+// addBtn.addEventListener("click",function(){
+//     addTocart(el)
+// })
+// function addTocart(product){
+//     let products = JSON.parse(localStorage.getItem("cart")) || []
+// products.push(product)
+//     localStorage.setItem("cart",JSON.stringify(products))
+// }
+</script>

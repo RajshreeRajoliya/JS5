@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+const cart = ["kurta","jeans","top"]
+
+// function order(){
+//     console.log("payment")
+// function payment(){
+// console.log("Summary Called")
+// function Summary(){
+// update()
+// }
+// Summary()
+// }
+// payment()
+
+// }
+
+
+// function update(){
+//     console.log("updated")
+// }
+// order(cart,()=>{
+//     console.log("execute")
+// })
+
+// api.order(()=>{
+//     api.pay(()=>{
+//         api.summary(()=>{
+//             api.update()
+//         })
+//     })
+// })\
+
+
+function order(cart,callback){
+
+console.log("Payment called")
+
+function payment(){
+    console.log("Summary Called")
+
+    function summary(){
+        console.log("Summary")
+
+        update()
+    }
+    summary()
+}
+payment()
+
+
+}
+
+function update(){
+    console.log("Updated")
+}
+
+order(cart,()=>{
+    console.log("Exeuted")
+})
+</script>

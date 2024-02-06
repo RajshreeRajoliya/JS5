@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cart"></div>
+</body>
+</html>
+
+<script>
+    let products = JSON.parse(localStorage.getItem("cart")) || []
+    function display(){
+        products.forEach((el,index)=>{
+    let div = document.createElement('div')
+
+let image = document.createElement("img")
+image.setAttribute("src",el.image)
+image.setAttribute("id","pic")
+
+let title = document.createElement("p")
+title.innerHTML = el.title
+
+let price = document.createElement('p')
+price.innerHTML = el.price
+
+var quantity = document.createElement('p');
+                quantity.innerText = "Quantity : " + el.quantity;
+        
+         let delbtn = document.createElement("button")
+         delbtn.innerHTML = "REMOVE" 
+         delbtn.addEventListener("click",function(){
+            products.splice(index,1)
+            localStorage.setItem("cart",JSON.stringify(products))
+
+            display()
+         })      
+
+
+
+div.append(image , title , price,quantity, delbtn)
+document.getElementById("cart").append(div)
+})
+}
+display()
+
+
+// let delbtn = document.createElement("button")
+// delbtn.innerHTML = "REMOVE"
+// delbtn.addEventListener("click",function(){
+// products.splice(index,1)
+// localStorage.setItem("cart",JSON.stringify(products))
+// display()
+// })
+</script>
