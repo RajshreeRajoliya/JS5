@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+let arr = [12 , 4 , 5 , 6 , 2, 8 , 3]
+let target = 9
+let ans = []
+function twoSum(arr , target){
+    for(let i = 0 ; i < arr.length ; i++){
+        if(arr[i] + arr[i + 1] == target){
+ans = i
+        }
+    }
+    return ans
+}
+
+let res = twoSum(arr , target)
+console.log(res)
+
+</script>

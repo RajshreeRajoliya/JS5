@@ -14,7 +14,7 @@
     let products = JSON.parse(localStorage.getItem("cart")) || []
 
     function displayCart(){
-      
+      document.getElementById("cart").innerHTML = ""
         products.map((el,index)=>{
 
             let div = document.createElement("div")
@@ -28,9 +28,8 @@
             let price = document.createElement("h3")
             price.innerHTML = el.price
             
-
-            let quantity = document.createElement("p")
-            quantity.innerHTML = "Quantity " + el.quantity
+let quantity = document.createElement("p")
+quantity.innerHTML = el.quantity
 
             let delbtn = document.createElement("button")
             delbtn.innerHTML = "REMOVE"
@@ -49,3 +48,6 @@
 
 displayCart()
 </script>
+
+<!-- var quantity = document.createElement('p');
+quantity.innerText = "Quantity : " + el.quantity; -->
