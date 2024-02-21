@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let arr = [3 , 5 , 4 , 1 , 2]
+//     function bub(arr){
+//         for(let i = 0 ; i < arr.length ; i++){
+//         for(j = 0 ; j < arr.length - i ; j++){
+//             if(arr[j] > arr[j - 1]){
+//                 let t = arr[j]
+//                 arr[j] = arr[j - 1]
+//                 arr[j - 1] = t
+//             }
+//         }
+      
+//     }
+//     return arr
+//     }
+// console.log(
+//    bub(arr))
+
+
+
+
+// function selection(arr){
+//     for(let i = 0 ; i < arr.length ; i++){
+//         let last = arr.length - i - 1
+//         let maxValue = getMax(arr , 0 , last)
+//         swap(arr , maxValue , last)
+//     }
+// }
+
+
+// function getMax(arr , s , e){
+//     let max = 0
+//     for(let i = s ; i <= e ; i++){
+// if(arr[i] > arr[max]){
+//     max = i
+// }
+//     }
+//     return max
+// }
+
+// function swap(arr , f , s){
+//     let t = arr[f]
+//     arr[f] = arr[s]
+//     arr[s] = t
+// }
+// selection(arr)
+// console.log(arr)
+
+
+
+
+
+
+// function bub(arr){
+//     for(let i = 0 ; i < arr.length ; i++){
+//         for(let j = 0 ; j < arr.length - 1 ; j++){
+//             if(arr[j] > arr[j + 1]){
+//                 let t = arr[j]
+//                 arr[j] = arr[j + 1]
+//                 arr[j + 1] = t
+//             }
+      
+//         }
+//     }
+//     return arr
+// }
+
+// console.log(bub(arr))
+
+
+
+// function bub(arr){
+//     for(let i = 0 ; i < arr.length ; i++){
+//         for(let j = 0 ; j < arr.length - 1 ; j++){
+//             if(arr[j] > arr[j + 1]){
+//                 let t = arr[j]
+//                 arr[j] = arr[j + 1]
+//                 arr[j + 1] = t
+//             }
+//         }
+//     }
+//     return arr
+// }
+
+// console.log(bub(arr))
+
+
+function selec(arr){
+    for(let i = 0  ; i < arr.length ; i++){
+let last = arr.length - i - 1
+let maxValue = getMax(arr , 0 , last)
+swap(arr ,maxValue , last)
+    }
+}
+
+function getMax(arr , s , e){
+    let max = 0
+for(let i = s ; i < e ; i++){
+if(arr[i] > arr[max]){
+    max = i
+}
+  }
+  return max
+}
+
+function swap(arr , f , s){
+    let t = arr[f]
+    arr[f] = arr[s]
+    arr[s] = t
+}
+
+selec(arr)
+console.log(arr)
+
+</script>
