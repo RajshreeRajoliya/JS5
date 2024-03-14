@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // let ws = new WeakSet()
+    // let ob1 = {"name" : "foo"}
+    // let ob2 = {"name" : "poo"}
+    // ws.add(ob1)
+    // ws.add(ob2)
+    // ws.delete(ob1)
+    // console.log(ws)
+    // console.log(ws.has(ob2))
+
+    let wm = new WeakMap()
+    let ob1 = {"name" : "poo"}
+    let ob2 = {"name" : "soo"}
+
+    wm.set(ob1,"private")
+    wm.set(ob2,"private")
+    wm.delete(ob1)
+    console.log(wm)
+    console.log(wm.has(ob1))
+    console.log(wm.get(ob2))
+</script>

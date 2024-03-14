@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+//     let ws = new WeakSet()
+//     let ob1 = {"name" : "raj"}
+//     let ob2 = {"name" : "raj"}
+
+//    ws.add(ob1)
+//    ws.add(ob2)
+
+//    console.log(ws)
+
+// let wm = new WeakMap()
+// let ob1 = {"name" : "pp"}
+// let ob2 = {"name" : "pp"}
+// wm.set(ob1,"raju")
+// wm.set(ob2,"raju")
+// wm.delete(ob1)
+// console.log(wm)
+
+
+
+
+
+
+
+
+class Stack{
+constructor(){
+    this.stack = []
+}
+
+push(element){
+this.stack.push(element)
+}
+size(){
+ return   this.stack.length
+}
+isEmpty(){
+    return this.stack.length == 0
+}
+
+pop(){
+    if(this.isEmpty()){
+        return "Stack Empty"
+    } else {
+        return this.stack.pop()
+    }
+}
+
+peek(){
+    if(this.isEmpty()){
+        return "Stack is empty"
+    } else {
+        return this.stack[this.size() - 1]
+    }
+}
+
+}
+
+
+let stack = new Stack()
+stack.push(90)
+stack.push(980)
+stack.push(900)
+stack.pop()
+stack.peek()
+console.log(stack.peek())
+// console.log(stack.size())
+
+// console.log(stack.isEmpty())
+
+
+
+
+
+
+
+</script>
