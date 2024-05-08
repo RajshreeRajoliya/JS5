@@ -9,3 +9,41 @@
     
 </body>
 </html>
+<script>
+    let max = 0
+    let sum = 0
+    const product = [
+        {name : "raj", price : 45 , rating : 2},
+        {name : "aj", price : 50 , rating : 3},
+        {name : "raja", price : 60 , rating : 4},
+    ]
+
+    for(let i = 0 ; i < product.length ; i++){
+        if(product[i].price > max){
+            max = product[i].price
+        }
+        // sum += product[i].rating
+//         console.log(product[i])
+// console.log(max)
+
+    }
+    // console.log(sum / 3)
+    console.log(max)
+
+
+
+
+    let arr =[]
+    let quots = [
+        {quot : "Failur is a great teacher",author : "Smit" , category:"education"},
+        {quot : "Everything is possible",author : "kunj" , category:"motivation"},
+        {quot : "time teach's everything",author : "Anand" , category:"life"},
+        {quot : "try try but dont cry",author : "Divyesh" , category:"education"}
+    ]
+    for (let i = 0; i < quots.length; i++) {
+        if (quots[i].category ==="education") {
+            arr.push(quots[i])
+        }
+    }
+    console.log(arr)
+</script>
